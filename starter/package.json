@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "inquirer": "6.3.1",
+    "validator": "13.9.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
