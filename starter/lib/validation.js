@@ -63,5 +63,7 @@ class Validate{
         return isValidEmail;
     };
 
+
+
 }
 module.exports = Validate;
