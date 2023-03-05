@@ -69,7 +69,8 @@ Some of the input validations in place are:
 * *src* folder contains the html page templete.
 * *lib* folder contains the Employee classes constructors.
 * *output* folder contains the html Team generated.
-Answer the prompted questions to generate an html file sample below of the Webpage generated.
+
+- Answer the prompted questions to generate an html file sample below of the Webpage generated.
 
 
 
