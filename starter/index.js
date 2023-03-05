@@ -10,11 +10,10 @@ const render = require("./src/page-template.js");
 const validate = require('./lib/validation');
 
 
+const myTeam = [];
 
-//createManager();
-//myEngineer();
 
-///////////////FUNCTION TO CREATE MANAGER///////////////////
+/////////////// MANAGER///////////////////
     
 inquirer
 .prompt([
@@ -123,37 +122,24 @@ inquirer
 ])
 .then(empDetails => {
 
-    const myTeam = [];
     
-
-    const manager = new Manager(
+    const employee = new Manager(
         empDetails.managerName, 
         empDetails.managerId,
         empDetails.managerEmail,
         empDetails.managerOfficeNumber
     );
 
-    const managerRole = manager.getRole();
+    myTeam.push(employee);
 
-    const managerEmp = { role: managerRole, ...manager};
-        
-    //console.log(managerEmp);
-    
-    
-    myTeam.push(managerEmp);
-
-    //choseEmp();
-    console.log(myTeam)
-
-    choseEmp();
-    
+   choseEmp();
 })
 
 
 
 
 
-
+/////FUNCTION TO CHOSE TO ADD MY EMPLOYEE
 function choseEmp(){
 
     inquirer
@@ -163,24 +149,31 @@ function choseEmp(){
         type: 'list',
         name: 'chooseEmpToAdd',
         message: 'Choose another Employee to add?',
-        choices: ['Exit','Engineer', 'Intern'],
-        
+        choices: ['Exit','Engineer', 'Intern'], 
     },
 
     ]).then(input => {
+
         if(input.chooseEmpToAdd === "Engineer"){
 
-           // console.log(createEngineer);
-           createEngineer();
-
+            createEngineer();
 
         }else if(input.chooseEmpToAdd === "Intern"){
-        return createIntern();
-        }
-        
-    })
-}
+           
+            createIntern();
 
+        }else if(input.chooseEmpToAdd === "Exit") {
+
+
+            createTeam(myTeam);
+        };
+        
+    });
+};
+
+
+
+ 
 
 
 ///////////////FUNCTION TO CREATE ENGINEER///////////////////
@@ -219,7 +212,6 @@ const createEngineer = function myEngineer()
         name: 'personId',
         message: 'What is the Employee ID number?',
 
-
         //VALIDATING EMPLOYEE ID INPUT
         validate: (input)=> {
 
@@ -265,44 +257,30 @@ const createEngineer = function myEngineer()
         
     },
 
-        
-
     {    /// EMPLOYEE GITHUB NUMBER
         type: 'input',
         name: 'github',
         message: 'What is the Employee gitHub UserName?',
     }
 
-
     ]) 
     .then((inputData) => {
 
-        const engineer = new Engineer(
+        const employee = new Engineer(
             inputData.personName,
             inputData.personId,
             inputData.personEmail,
             inputData.github,
         )
+         
+        myTeam.push(employee);
 
-        let engRole = engineer.getRole();
+        console.log( myTeam)
 
-        const engineerEmp = {
-            role: engRole, ...engineer
-        }
-        //myCreateEng.push(engineerEmp);
-
-        const myCreateEng = [engineerEmp];
         choseEmp();
-
-    })
-
-} 
-
-
-
-
-
-
+       
+    });
+};
 
 
 
@@ -311,8 +289,6 @@ const createEngineer = function myEngineer()
 ///////////////FUNCTION TO CREATE INTERN///////////////////
 
 function createIntern() {
-
-    
 
     inquirer
     .prompt([
@@ -391,8 +367,6 @@ function createIntern() {
         
     },
 
-        
-
     {    /// EMPLOYEE SCHOOL
         type: 'input',
         name: 'school',
@@ -421,26 +395,29 @@ function createIntern() {
     ]) 
     .then((inputData) => {
 
-        const myIntern = [];
-
-      //  console.log(inputData);
-
-        const intern = new Intern(
+        
+        const employee = new Intern(
             inputData.personName,
             inputData.personId,
             inputData.personEmail,
             inputData.school,
-        )
+        );
 
-        const internRole = intern.getRole();
-
-        const internEmp = {
-            role: internRole, ...intern
-        }
-        myIntern.push(internEmp);
+        myTeam.push(employee);
 
         choseEmp();
     });  
+} 
 
-    
+
+
+
+////FUNCTION TO GENERATE HTML FILE FOR TEAM CREATED
+function createTeam(data){
+
+    const teamGenerated = render(data)
+    const fileName = outputPath;
+     
+     fs.writeFile(fileName, teamGenerated, (err) => 
+     err ? console.log(err): console.log("success!"));
 } 

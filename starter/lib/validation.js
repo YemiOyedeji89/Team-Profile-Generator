@@ -14,7 +14,7 @@ class Validate{
 
         this.input = input
 
-        if(!validator.isAlpha(input) || input === " "){
+        if(!validator.isAlpha(input, 'en-US', {ignore: ' -'}) || input === " "){
             
             isValid = false;
         }
