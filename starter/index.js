@@ -275,8 +275,6 @@ const createEngineer = function myEngineer()
          
         myTeam.push(employee);
 
-        console.log( myTeam)
-
         choseEmp();
        
     });
