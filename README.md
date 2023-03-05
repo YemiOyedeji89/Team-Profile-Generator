@@ -3,6 +3,9 @@
 This is a project about generating a webpage that displays a team's basic information. The webpage is generated using the information from the user's input from  series of questions prompted from the commandline application. 
 In other to build the Team, A manger details must first be added and then employees such as an Engineer or an Intern. 
 
+
+
+
 Some of the input validations in place are:
 - User *must* add manager details first before proceeding to other employees.
 - User *must* answer all the questions.
@@ -17,7 +20,6 @@ Some of the input validations in place are:
 
 * [Installation](#Installation)
 * [Usage](#Usage)
-* [Demo](#Demo)
 * [License](#License)
 * [Tests](#Tests)
 * [Packages](#Packages)
@@ -41,7 +43,11 @@ Some of the input validations in place are:
 
 
 
+
+
 ![Git clone](./starter/images/Screenshot_20230109_134921.png)
+
+
 
 
 
@@ -69,12 +75,15 @@ Answer the prompted questions to generate an html file sample below of the Webpa
 
 
 
+
 ## Tests
 Validation test scenarios on user inputs:
 * Enter invalid email format,  it errors out for invalid email 
 * Enter numeric value in the name field, it errors please enter a valid name.
 * Enter  less than 4 digits in the ID field and manager extension number, it errors Please enter numbers only min of 4 digits. 
  
+
+
 
 ## Packages
 - *inquirer 6.3.1*
