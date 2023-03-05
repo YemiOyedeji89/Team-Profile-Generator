@@ -64,11 +64,11 @@ Some of the input validations in place are:
 
 ## Usage
 
-Code located in the *starter* folder.
-*tests* folder contains test on the functionality of the Employee class constructors.
-*src* folder contains the html page templete.
-*lib* folder contains the Employee classes constructors.
-*output* folder contains the html Team generated.
+* Code located in the *starter* folder.
+* *tests* folder contains test on the functionality of the Employee class constructors.
+* *src* folder contains the html page templete.
+* *lib* folder contains the Employee classes constructors.
+* *output* folder contains the html Team generated.
 Answer the prompted questions to generate an html file sample below of the Webpage generated.
 
 
