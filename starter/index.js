@@ -332,7 +332,7 @@ function createIntern() {
 
             if(inputIsValidId === false){
 
-                return 'Please enter numbers only min of 4'
+                return 'Please enter numbers only min of 4 digits'
 
             }else{
                 isValidNum = true;
